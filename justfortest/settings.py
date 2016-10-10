@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'justfortest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'justfortest',
-        'USER': '***',
-        'PASSWORD': '***',
+        'NAME': 'djangotest',
+        'USER': 'root',
+        'PASSWORD': '123',
         'HOST': 'localhost'
     }
 }
