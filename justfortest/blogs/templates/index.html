@@ -1,0 +1,37 @@
+{% comment %}
+{% include 'chunks/header.html' %}
+<h1>This is test post page</h1>
+{% for post in collection %}
+{{post.title}}<br>
+{{post.description}} <br>
+<hr>
+<a href="/posts/view/{{post.id}}/">Открыть</a>
+<hr>
+{% endfor %}
+{% endcomment %}
+{% include 'chunks/header.html' %}
+<body>
+<div class="container-fluid">
+    <div class="row content">
+        {% load main_menu %}
+        {% navigation '/posts/' %}
+        <div class="col-sm-9">
+            {% for article in collection %}
+            <h4>
+                <small>{{article.title}}</small>
+            </h4>
+            <hr>
+            <h2>{{article.title}}</h2>
+            <h5><span class="glyphicon glyphicon-time"></span> Опубликовано Jane Dane, Sep 27, 2015.</h5>
+            <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span>
+                <span>Коментарии<span class="badge">{{article.posts.all | length}}</span></span>
+                <span><a href="/posts/view/{{article.id}}/">Читать</a></span>
+            </h5><br>
+            <p>{{article.description}}</p>
+            <br><br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

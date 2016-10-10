@@ -1,0 +1,28 @@
+{% include 'chunks/header.html' %}
+<body>
+<div class="container-fluid">
+    <div class="row content">
+        {% load main_menu %}
+        {% navigation '/posts/' %}
+        <div class="col-sm-9">
+            <h4>
+                <small>{{article.title}}</small>
+            </h4>
+            <hr>
+            <h2>{{article.title}}</h2>
+            <h5><span class="glyphicon glyphicon-time"></span> Опубликовано Jane Dane, Sep 27, 2015.</h5>
+            <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
+            <p>{{article.full_text}}</p>
+            <br><br>
+            {% include '../forms/addform.html' %}
+            <p><span class="badge">{{article.posts.all | length}}</span> Коментарии:</p><br>
+            <div class="row">
+                {% for comment in article.posts.all %}
+                {% include 'post/comment.html' with comment=comment %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
